@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduSpark - All-in-One</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">EduSpark</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#playlists">Playlists</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#ide">Online IDE</a></li>
+        <li><a href="#premium">Premium</a></li>
+        <li><button onclick="openModal('loginModal')">Login</button></li>
+        <li><button onclick="openModal('registerModal')">Register</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <section id="home">
+    <h1>Welcome to EduSpark</h1>
+    <p>Your all-in-one learning platform for CSE students.</p>
+    <p>Built by Team EduSpark.bd</p>
+  </section>
+
+  <section id="playlists">
+    <h2>Course Playlists</h2>
+    <div class="video-box">
+      <h4>Web Development</h4>
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <!-- Replace this with an individual video or alternative playlist -->
+    <div class="video-box">
+      <h4>Data Structures</h4>
+      <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-box">
+      <h4>Python Programming</h4>
+      <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-box">
+      <h4>Database Management System</h4>
+      <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="books">
+    <h2>Book Recommendations</h2>
+    <div class="book-list">
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/61Iz2yy2CKL.jpg" alt="Intro to Algo">
+        <a href="https://amzn.to/3yW0aJz" target="_blank">Intro to Algorithms</a>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/41jEbK-jG+L.jpg" alt="Clean Code">
+        <a href="https://amzn.to/3xITpcF" target="_blank">Clean Code</a>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/51EXH6jLAML._SX396_BO1,204,203,200_.jpg" alt="DB Concepts">
+        <a href="https://amzn.to/4aXNvWR" target="_blank">Database System Concepts</a>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/81wgcld4wxL.jpg" alt="Python Crash Course">
+        <a href="https://amzn.to/3Ra6c9k" target="_blank">Python Crash Course</a>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/91asIC1fRwL.jpg" alt="Eloquent JavaScript">
+        <a href="https://amzn.to/3V7yYg5" target="_blank">Eloquent JavaScript</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ide">
+    <h2>Online IDE (HTML/JS)</h2>
+    <textarea id="code" placeholder="Write HTML or JS here..."></textarea><br>
+    <button onclick="runCode()">Run Code</button>
+    <iframe id="output"></iframe>
+  </section>
+
+  <section id="premium">
+    <h2>Premium Courses</h2>
+    <div id="premiumContent" style="display: none;">
+      <p>✅ Exclusive content unlocked!</p>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div id="lockedMessage">
+      <p>🔒 Please <strong>log in</strong> to view premium content.</p>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h3>Login</h3>
+      <input type="text" id="loginUsername" placeholder="Username" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content" id="registerModalContent">
+      <div class="modal-header" id="dragHandle">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h3>Register</h3>
+      </div>
+      <input type="text" id="fullname" placeholder="Full Name" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="tel" id="phone" placeholder="Phone Number" />
+      <input type="date" id="birthdate" placeholder="Birth Date" />
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <input type="text" id="regUsername" placeholder="Username" />
+      <input type="password" id="regPassword" placeholder="Password" />
+      <button onclick="register()">Register</button>
+    </div>
+  </div>
+
+  <footer>
+    <hr />
+    <p>Team EduSpark.bd | Contact: eduspark.bd@gmail.com | 01775318798, 01863693002</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      // Make sections and videos visible when the page loads
+      const sections = document.querySelectorAll('section');
+      const videos = document.querySelectorAll('.video-box');
+      const books = document.querySelectorAll('.book-list');
+
+      sections.forEach(section => section.classList.add('visible'));
+      videos.forEach(video => video.classList.add('visible'));
+      books.forEach(book => book.classList.add('visible'));
+    });
+  </script>
+</body>
+</html>

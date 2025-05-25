@@ -1,0 +1,221 @@
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  
+  header {
+    background: #0066cc;
+    color: white;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a,
+  .nav-links button {
+    color: white;
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Show sections when loaded */
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  .video-box {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .video-box iframe {
+    width: 90%;
+    max-width: 600px;
+    height: 315px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  .book-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .book {
+    text-align: center;
+    max-width: 150px;
+  }
+  
+  .book img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .book a {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  textarea#code {
+    width: 90%;
+    max-width: 700px;
+    height: 200px;
+    margin-top: 20px;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  iframe#output {
+    width: 90%;
+    max-width: 700px;
+    height: 200px;
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: #004d99;
+  }
+  
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: left;
+  }
+  
+  .modal-content input,
+  .modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .modal-header {
+    cursor: move;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-content .close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #eee;
+    font-size: 14px;
+    color: #333;
+    margin-top: 50px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .book-list {
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-box iframe,
+    iframe#output,
+    textarea#code {
+      width: 100%;
+    }
+  }
+  
+  /* Smooth transition for book list and playlist */
+  .book-list.visible,
+  .video-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
